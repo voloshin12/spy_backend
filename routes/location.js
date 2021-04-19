@@ -1,7 +1,7 @@
 const Router = require("express")
 const router = new Router()
-const controller = require("../controllers/location")
+const LocationController = require("../controllers/location")
 
-router.get('/locations',  controller.locations)
-
+router.get('/locations',  LocationController.locations)
+router.post('/location', LocationController.addLocation)
 module.exports = router
