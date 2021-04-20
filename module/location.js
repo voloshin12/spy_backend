@@ -5,4 +5,4 @@ const Location = new Schema({
     roles: {type: Array, ref: 'Role'}
 })
 
-module.exports = model('Location', Location)
+module.exports = model('Locations', Location)

@@ -4,4 +4,4 @@ const Role = new Schema({
     title: {type: String, unique: true}
 })
 
-module.exports = model('Role', Role)
+module.exports = model('Roles', Role)

@@ -6,7 +6,8 @@ class LocationController {
         try {
             const locations = await Location.find()
             return res.json(locations)
-        } catch (e) {
+        }
+        catch (e) {
             console.log(e)
         }
     }
@@ -26,7 +27,8 @@ class LocationController {
             const location = new Location({title, roles} )
             await location.save()
             return res.json({message: "Location added successfully", data: req.body})
-        } catch (e) {
+        }
+        catch (e) {
             console.log(e)
         }
     }
