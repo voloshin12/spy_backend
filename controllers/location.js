@@ -4,7 +4,8 @@ class LocationController {
 
     async locations (req, res) {
         try {
-            return res.json({message: "hello"})
+            const locations = await Location.find()
+            return res.json(locations)
         } catch (e) {
             console.log(e)
         }
@@ -13,10 +14,14 @@ class LocationController {
     async addLocation (req, res) {
         try {
             const { title, roles } = req.body
-            let role
+
             roles.map( async item => {
-                role = new Role({title: item})
-                await role.save()
+                const role = await Role.findOne({title: item})
+                if (!role) {
+                    const role = new Role({title: item})
+                    await role.save()
+                }
+
             })
             const location = new Location({title, roles} )
             await location.save()
